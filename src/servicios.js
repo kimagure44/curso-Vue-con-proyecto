@@ -2,7 +2,7 @@
 import Axios from 'axios'
 
 const config = {
-  urlData: 'http://www.omdbapi.com/',
+  urlData: 'https://www.omdbapi.com/',
   apiKey: 'b0ea0504'
 }
 
