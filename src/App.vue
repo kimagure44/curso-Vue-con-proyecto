@@ -21,7 +21,7 @@
       <div class="box-result">
         <ul v-show="showFilm">
           <li v-for="(film, index) in dataFilm" :key="index">
-            <div :class="film.Poster !== 'N/A' ? 'image-film' : 'image-film border'"><img :src="film.Poster" alt=""></div>
+            <div :class="film.Poster !== 'N/A' ? 'image-film' : 'image-film border'"><img :src="film.Poster !== 'N/A' ? film.Poster : noImage" alt=""></div>
             <div class="image-data">
               <table>
                 <tr>
@@ -112,7 +112,8 @@ export default {
         totalRecords: 0,
         totalPages: 0
       },
-      showloading: false
+      showloading: false,
+      noImage: './dist/no-image.png'
     }
   },
   methods: {
@@ -160,7 +161,6 @@ export default {
             this.msnError = ''
             this.dataDetailFilm = data
           } else {
-            debugger
             this.dataDetailFilm = ''
             this.showError = true
             this.msnError = data.Error
@@ -172,12 +172,10 @@ export default {
         })
     },
     previous () {
-      debugger
       this.pagination.pagActual = --this.pagination.pagActual < 1 ? 1 : this.pagination.pagActual--
       this.searchFilm()
     },
     next () {
-      debugger
       this.pagination.pagActual = ++this.pagination.pagActual > this.pagination.totalPages ? this.pagination.totalPages : this.pagination.pagActual++
       this.searchFilm()
     }
@@ -193,7 +191,6 @@ export default {
       return this.dataDetailFilm === '' ? false : true
     },
     printPages () {
-      debugger
       return `${this.pagination.pagActual} de ${this.pagination.totalPages}`
     }
   }
