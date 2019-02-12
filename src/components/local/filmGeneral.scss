@@ -1,0 +1,76 @@
+h1.busqueda {
+  text-align: left;
+}
+ul {
+  li {
+    text-align: left;
+    img {
+      box-shadow: 0px 0px 30px rgba(0,0,0,1);
+      height: 450px;
+      width: 300px;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+
+.image-data {
+  border: 1px solid #cccccc;
+  float: left;
+  width: calc(100% - 332px);
+  height: 448px;
+  overflow-y: scroll;
+}
+table {
+  width: 100%;
+  tr {
+    td, th {
+      border: 1px solid #cccccc;
+      padding: 5px;
+      margin: 0;
+      text-align: left;
+    }
+  }
+}
+.border {
+  border: 1px solid #cccccc;
+  background-image: url('../../assets/no-image.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 298px !important;
+}
+.image-film {
+  width: 300px;
+  float: left;
+  margin: 0 20px 20px 0;
+  height: 450px;
+
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.icon-right {
+  float: right;
+  cursor: pointer;
+}
+.btn-download {
+  background: #0095ff;
+  padding: 5px 20px 4px 20px;
+  font-size: 11px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 3px;
+}
