@@ -21,6 +21,9 @@ export default {
         subtitle: 'The Open Movie & TV Show Database'
       }
     }
+  },
+  created() {
+    this.$router.push({ name: 'home'})
   }
 }
 </script>

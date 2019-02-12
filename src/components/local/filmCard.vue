@@ -20,15 +20,21 @@
             <tr>
               <th>Poster</th>
               <td>
-                <a class="btn-download" :href="film.Poster" target="_blank">
-                  <font-awesome-icon icon="download" /> Poster
-                </a>
-                <a class="btn-download" @click="searchInfoWikipedia(film.Title)">
-                  <font-awesome-icon icon="wifi" /> Wikipedia
-                </a>
-                <a class="btn-download" @click="seePoster(film.imdbID)">
-                  <font-awesome-icon icon="eye"/> Poster
-                </a>
+                <div class="container-btn">
+                  <a class="btn-download" :href="film.Poster" target="_blank">
+                    <font-awesome-icon icon="download" /> Poster
+                  </a>
+                </div>
+                <div class="container-btn">
+                  <a class="btn-download" @click="searchInfoWikipedia(film.Title)">
+                    <font-awesome-icon icon="wifi" /> Wikipedia
+                  </a>
+                </div>
+                <div class="container-btn">
+                  <a class="btn-download" @click="seePoster(film.imdbID)">
+                    <font-awesome-icon icon="eye"/> Poster
+                  </a>
+                </div>
               </td>
             </tr>
           </table>
@@ -170,5 +176,7 @@ a {
   color: #ffffff;
   border-radius: 3px;
 }
-
+.container-btn {
+    margin: 5px 0;
+}
 </style>
