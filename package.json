@@ -1,13 +1,15 @@
 {
   "name": "omdb",
-  "description": "A Vue.js project",
+  "description": "Curso de Vue",
   "version": "1.0.0",
   "author": "Ivan <kimagure44@yahoo.es>",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "cypress open --project ./test"
+
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
@@ -30,6 +32,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "cypress": "^3.1.5",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-loader": "^2.1.1",
