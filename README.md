@@ -24,3 +24,9 @@ https://tecnops.es/programacion-usando-vuejs-parte-7/
 UPDATE: 20/03/2019
 
 Añadiendo testing E2E a nuestra aplicación. Los testing E2E se han realizado usando cypress y puedes acceder al tutorial aquí: https://tecnops.es/testing-e2e-con-cypress-tutorial-1-parte/
+
+UPDATE: 10/04/2019
+
+Añadiendo Vuex, un nuevo tutorial del curso de Vue
+
+https://tecnops.es/programacion-usando-vuejs-vuex-parte-9
