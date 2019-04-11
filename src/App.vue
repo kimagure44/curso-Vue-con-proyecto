@@ -7,11 +7,13 @@
         <router-link to="/">Home</router-link>
         <router-link to="contact">Contacto</router-link>
       </nav>
+      <div>{{msnSWelcome}}, {{msnTitle}} {{totalSearches}}</div>
     </header>
     <router-view></router-view>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'app',
   data () {
@@ -19,11 +21,21 @@ export default {
       header: {
         title: 'OMDb API',
         subtitle: 'The Open Movie & TV Show Database'
-      }
+      },
+      msnSearching: 'la cantidad de búsquedas realizadas en la aplicación es de... '
     }
   },
   created() {
     this.$router.push({ name: 'home'})
+  },
+  computed: {
+    ...mapState(['totalSearches']),
+    msnTitle() {
+      return this.msnSearching
+    },
+    msnSWelcome() {
+      return 'Saludos'
+    }
   }
 }
 </script>

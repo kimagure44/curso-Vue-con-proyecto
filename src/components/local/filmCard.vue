@@ -7,16 +7,18 @@
     </h1>
     <ul>
       <li v-for="(film, index) in dataFilm" :key="index">
-        <div :class="film.Poster !== 'N/A' ? 'image-film' : 'image-film border'"><img :src="film.Poster !== 'N/A' ? film.Poster : noImage" alt=""></div>
+        <div :class="coverBorders(film.Poster)">
+          <img v-without-image="film.Poster" alt="">
+        </div>
         <div class="image-data">
           <table>
             <tr>
               <th>ID<font-awesome-icon icon="info-circle" @click="searchDetailFilm(film.imdbID, 'id')" class="icon-right"/></th>
               <td v-text="film.imdbID"></td>
             </tr>
-            <tr><th>Title</th><td v-text="film.Title"></td></tr>
-            <tr><th>Year</th><td v-text="film.Year"></td></tr>
-            <tr><th>Type</th><td v-text="film.Type"></td></tr>
+            <tr><th v-color-text="'red'">Title</th><td v-text="film.Title"></td></tr>
+            <tr><th v-color-text="'green'">Year</th><td v-text="film.Year"></td></tr>
+            <tr><th v-color-text="'blue'">Type</th><td v-text="film.Type"></td></tr>
             <tr>
               <th>Poster</th>
               <td>
@@ -46,12 +48,21 @@
 <!-- -->
 <script>
   import API from '@/servicios.js'
+  import mixinBorde from '@/mixins/title'
 
   export default {
     props: ['dataFilm','noImage'],
+    mixins: [mixinBorde],
     data () {
       return {
 
+      }
+    },
+    directives: {
+      colorText: {
+        bind (el, binding) {
+          el.style.color = binding.value
+        }
       }
     },
     methods: {

@@ -1,14 +1,14 @@
 <template>
   <ul v-show="show">
-    <div :class="dataDetailFilm.Poster !== 'N/A' ? 'image-film' : 'image-film border'">
+    <div :class="coverBorders(dataDetailFilm.Poster)">
       <img :src="dataDetailFilm.Poster" alt="">
     </div>
     <div class="image-data">
       <table>
-        <tr><th>Title</th><td v-text="dataDetailFilm.Title"></td></tr>
+        <tr><th>Title</th><td>{{dataDetailFilm.Title | capitals-decorate-all-words}}</td></tr>
         <tr><th>Year</th><td v-text="dataDetailFilm.Year"></td></tr>
         <tr><th>Rated</th><td v-text="dataDetailFilm.Rated"></td></tr>
-        <tr><th>Released</th><td v-text="dataDetailFilm.Released"></td></tr>
+        <tr><th>Released</th><td>{{dataDetailFilm.Released | dateFormat}}</td></tr>
         <tr><th>Runtime</th><td v-text="dataDetailFilm.Runtime"></td></tr>
         <tr><th>Genre</th><td v-text="dataDetailFilm.Genre"></td></tr>
         <tr><th>Director</th><td v-text="dataDetailFilm.Director"></td></tr>
@@ -43,9 +43,10 @@
   </ul>
 </template>
 <script>
-
+  import mixinBorde from '@/mixins/title'
   export default {
     props: ['dataDetailFilm','showDetailFilm'],
+    mixins: [mixinBorde],
     data () {
       return {
         showDetail: false
@@ -59,6 +60,11 @@
     watch: {
       showDetailFilm(newVal) {
         this.showDetail = newVal
+      }
+    },
+    filters: {
+      dateFormat(value) {
+        return value && value.length > 0 ? value.split(' ').join('-') : ''
       }
     },
     created() {

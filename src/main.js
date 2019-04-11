@@ -8,6 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FilmLoading from '@/components/global/filmLoading.vue'
 import FilmModal from '@/components/global/filmModal.vue'
 import EventBus from '@/plugin/eventBus'
+import Filters from '@/filters/filters'
+import DirectiveWithoutImage from '@/directives/without-image'
+import store from './store'
+
 // Importamos las rutas
 import routes from '@/routes'
 
@@ -24,6 +28,8 @@ Vue.component('film-modal', FilmModal)
  */
 Vue.use(EventBus)
 Vue.use(VueRouter)
+Vue.use(Filters)
+Vue.use(DirectiveWithoutImage)
 
 // Declaramos una instancia de Vue-router con las rutas
 const router = new VueRouter({
@@ -38,5 +44,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 })
